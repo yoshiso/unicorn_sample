@@ -42,8 +42,11 @@ namespace :unicorn do
   desc "Stop unicorn"
   task(:stop) { unicorn_signal :QUIT }
 
-  desc "Restart unicorn with USR2"
+  desc "Restart unicorn with USR2(コード変更適用)"
   task(:restart) { unicorn_signal :USR2 }
+
+  desc "Reload unicorn with HUP(unicorn設定反映)"
+  task(:reload){ unicorn_signal :HUP}
 
   desc "Increment number of worker processes"
   task(:increment) { unicorn_signal :TTIN }
